@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Password protection script -->
+    <script src="js/password-protection.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -22,19 +24,24 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li>
+                            <a href="services.html" class="dropdown-toggle">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services.html#language-services">Language Services</a></li>
+                                <li><a href="services.html#corporate-training">Corporate Training</a></li>
+                                <li><a href="services.html#pharma-export">Pharma Export Consultancy</a></li>
+                                <li><a href="services.html#corporate-consulting">Corporate Consulting</a></li>
+                            </ul>
+                        </li>
                         <li><a href="industries.html">Industries</a></li>
                         <li><a href="opportunities.html" class="active">Opportunities</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="header-actions">
                 <div class="phone-number">
-                    <a href="tel:+123456789"><i class="fas fa-phone"></i> +91 99712 10909 </a>
-                </div>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">Schedule a Free Consultation</a>
+                    <a href="tel:+919870450110"><i class="fas fa-phone"></i> +91 9870450110</a>
                 </div>
             </div>
             <div class="mobile-toggle">
@@ -56,151 +63,20 @@
     <!-- Opportunities Section -->
     <section class="opportunities-section">
         <div class="container">
-            <div class="section-grid">
-                <div class="section-content fade-in">
-                    <h2>Grow With Us</h2>
-                    <p>At Lingua Creatives, we're always looking for talented individuals and organizations to join our global network. Whether you're a language professional seeking employment, a student looking for an internship, or a business interested in partnership opportunities, we offer various ways to collaborate.</p>
-                    <p>We value diversity, expertise, and a passion for bridging language barriers in international business. Join us in our mission to help businesses communicate effectively across cultural boundaries.</p>
-                </div>
-                <div class="section-image fade-in">
-                    <div class="placeholder-box placeholder-square">
-                        <h4>Grow With Us</h4>
-                        <p>800×600 pixels</p>
+            <div class="opportunity-card fade-in">
+                <div class="section-grid">
+                    <div class="section-content">
+                        <h2>Grow With Us</h2>
+                        <p>At Lingua Creatives, we're always looking for talented individuals and organizations to join our global network. Whether you're a language professional seeking employment, a student looking for an internship, or a business interested in partnership opportunities, we offer various ways to collaborate.</p>
+                        <p>We value diversity, expertise, and a passion for bridging language barriers in international business. Join us in our mission to help businesses communicate effectively across cultural boundaries.</p>
+                        <a href="contact.php" class="btn btn-primary">Get In Touch</a>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Job Openings -->
-            <h2 class="fade-in">Current Job Openings</h2>
-            <div class="jobs-list">
-                <!-- Job 1 -->
-                <div class="job-card fade-in">
-                    <div class="job-header">
-                        <div class="job-title">
-                            <h3>Senior Translator - Pharmaceutical</h3>
-                            <p>Full-time position</p>
-                        </div>
-                        <span class="job-type">Full-Time</span>
-                    </div>
-                    <div class="job-details">
-                        <div class="job-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Remote / Office-based</span>
-                        </div>
-                        <div class="job-detail">
-                            <i class="fas fa-language"></i>
-                            <span>English, Russian</span>
-                        </div>
-                        <div class="job-detail">
-                            <i class="fas fa-clock"></i>
-                            <span>Application Deadline: 30 Dec 2023</span>
+                    <div class="section-image">
+                        <div class="placeholder-box placeholder-square">
+                            <h4>Grow With Us</h4>
+                            <p>800×600 pixels</p>
                         </div>
                     </div>
-                    <div class="job-description">
-                        <p>We're looking for an experienced translator with expertise in pharmaceutical documentation to join our team. The ideal candidate will have a strong background in translating technical and regulatory documents for the pharmaceutical industry.</p>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
-                </div>
-                
-                <!-- Job 2 -->
-                <div class="job-card fade-in">
-                    <div class="job-header">
-                        <div class="job-title">
-                            <h3>Corporate Language Trainer</h3>
-                            <p>Train business professionals in language and communication skills</p>
-                        </div>
-                        <span class="job-type">Contract</span>
-                    </div>
-                    <div class="job-details">
-                        <div class="job-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>On-site at client locations</span>
-                        </div>
-                        <div class="job-detail">
-                            <i class="fas fa-language"></i>
-                            <span>English, Hindi</span>
-                        </div>
-                        <div class="job-detail">
-                            <i class="fas fa-clock"></i>
-                            <span>Application Deadline: 15 Jan 2024</span>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        <p>We are seeking a corporate language trainer to conduct training sessions for business professionals. The trainer will develop and deliver language and communication skills training programs tailored to the specific needs of our corporate clients.</p>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
-                </div>
-                
-                <!-- Job 3 -->
-                <div class="job-card fade-in">
-                    <div class="job-header">
-                        <div class="job-title">
-                            <h3>Business Development Manager</h3>
-                            <p>Grow our client base in the pharmaceutical sector</p>
-                        </div>
-                        <span class="job-type">Full-Time</span>
-                    </div>
-                    <div class="job-details">
-                        <div class="job-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Office-based with travel</span>
-                        </div>
-                        <div class="job-detail">
-                            <i class="fas fa-briefcase"></i>
-                            <span>5+ years experience</span>
-                        </div>
-                        <div class="job-detail">
-                            <i class="fas fa-clock"></i>
-                            <span>Application Deadline: 20 Jan 2024</span>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        <p>We're looking for an experienced Business Development Manager to expand our client base in the pharmaceutical sector. The ideal candidate will have a background in pharmaceutical industry sales or business development, with a strong network and understanding of international market dynamics.</p>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
-                </div>
-            </div>
-            
-            <!-- Internship Opportunities -->
-            <h2 class="fade-in">Internship Opportunities</h2>
-            <div class="section-grid">
-                <div class="section-content fade-in">
-                    <p>We offer internship opportunities for students and recent graduates interested in translation, international business, and language services. Our internships provide valuable hands-on experience and mentorship from industry professionals.</p>
-                    <p>Current internship openings:</p>
-                    <ul>
-                        <li>Translation Intern (3 months, part-time)</li>
-                        <li>Marketing Intern (6 months, full-time)</li>
-                        <li>Project Coordination Intern (3-6 months, full-time)</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Apply for Internship</a>
-                </div>
-                <div class="section-image fade-in">
-                    <div class="placeholder-box placeholder-square">
-                        <h4>Internship Opportunities</h4>
-                        <p>800×600 pixels</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Partnership Opportunities -->
-            <h2 class="fade-in">Partnership Opportunities</h2>
-            <div class="section-grid">
-                <div class="section-image fade-in">
-                    <div class="placeholder-box placeholder-square">
-                        <h4>Partnership Opportunities</h4>
-                        <p>800×600 pixels</p>
-                    </div>
-                </div>
-                <div class="section-content fade-in">
-                    <p>We're always open to forming strategic partnerships with organizations that complement our services. We collaborate with language professionals, training institutions, industry associations, and businesses to create synergies and deliver comprehensive solutions to our clients.</p>
-                    <p>Partnership opportunities include:</p>
-                    <ul>
-                        <li>Freelance translator/interpreter partnerships</li>
-                        <li>Training and educational institution collaborations</li>
-                        <li>Service provider partnerships for complementary services</li>
-                        <li>Referral and affiliate partnerships</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Explore Partnerships</a>
                 </div>
             </div>
         </div>
@@ -209,9 +85,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Interested in Joining Our Team?</h2>
-            <p>Contact us today to learn more about our current opportunities.</p>
-            <a href="contact.html" class="btn btn-large btn-primary">Get in Touch</a>
+            <h2>Interested to work with us?</h2>
+            <p>Mail your CV to info@linguacreatives.com</p>
+            <a href="mailto:info@linguacreatives.com" class="btn btn-large btn-primary">Send your CV</a>
         </div>
     </section>
 
@@ -236,9 +112,9 @@
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Information</h4>
-                    <p><i class="fas fa-phone"></i> +1 (234) 567-89</p>
+                    <p><i class="fas fa-phone"></i> +91 9870450110</p>
                     <p><i class="fas fa-envelope"></i> info@linguacreatives.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Business Street, City, Country</p>
+                    <p><i class="fas fa-map-marker-alt"></i>New Delhi 110024, India</p>
                 </div>
             </div>
             <div class="footer-bottom">

@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Password protection script -->
+    <script src="js/password-protection.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -22,19 +24,24 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li>
+                            <a href="services.html" class="dropdown-toggle">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services.html#language-services">Language Services</a></li>
+                                <li><a href="services.html#corporate-training">Corporate Training</a></li>
+                                <li><a href="services.html#pharma-export">Pharma Export Consultancy</a></li>
+                                <li><a href="services.html#corporate-consulting">Corporate Consulting</a></li>
+                            </ul>
+                        </li>
                         <li><a href="industries.html" class="active">Industries</a></li>
                         <li><a href="opportunities.html">Opportunities</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="header-actions">
                 <div class="phone-number">
-                    <a href="tel:+123456789"><i class="fas fa-phone"></i> +91 99712 10909 </a>
-                </div>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">Schedule a Free Consultation</a>
+                    <a href="tel:+919870450110"><i class="fas fa-phone"></i> +91 9870450110</a>
                 </div>
             </div>
             <div class="mobile-toggle">
@@ -53,115 +60,132 @@
         </div>
     </section>
 
-    <!-- Industries Grid -->
-    <div class="container">
-        <div class="industries-grid">
-            <!-- Pharmaceutical Industry -->
-            <div class="industry-card fade-in">
-                <div class="industry-img">
-                    <div class="placeholder-box">
-                        <h4>Pharmaceutical</h4>
-                        <p>600×400 pixels</p>
-                    </div>
-                </div>
-                <div class="industry-content">
-                    <h3>Pharmaceutical</h3>
-                    <p>We provide specialized language and consultancy services for pharmaceutical companies looking to expand globally, with particular expertise in CIS markets. Our services include regulatory documentation translation, market analysis, and export consultancy.</p>
-                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            
-            <!-- BPO Industry -->
-            <div class="industry-card fade-in">
-                <div class="industry-img">
-                    <div class="placeholder-box">
-                        <h4>Business Process Outsourcing</h4>
-                        <p>600×400 pixels</p>
-                    </div>
-                </div>
-                <div class="industry-content">
-                    <h3>Business Process Outsourcing</h3>
-                    <p>Our language services help BPO companies improve their multilingual customer support capabilities. We offer translation, training, and quality assessment services to ensure effective communication with international clients.</p>
-                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            
-            <!-- FDI Industry -->
-            <div class="industry-card fade-in">
-                <div class="industry-img">
-                    <div class="placeholder-box">
-                        <h4>Foreign Direct Investment</h4>
-                        <p>600×400 pixels</p>
-                    </div>
-                </div>
-                <div class="industry-content">
-                    <h3>Foreign Direct Investment</h3>
-                    <p>We support international businesses looking to invest in India with comprehensive language and consulting services. Our expertise helps navigate cultural differences, regulatory requirements, and communication challenges.</p>
-                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            
-            <!-- Manufacturing Industry -->
-            <div class="industry-card fade-in">
-                <div class="industry-img">
-                    <div class="placeholder-box">
-                        <h4>Manufacturing</h4>
-                        <p>600×400 pixels</p>
-                    </div>
-                </div>
-                <div class="industry-content">
-                    <h3>Manufacturing</h3>
-                    <p>For manufacturing companies operating globally, we provide technical translation, documentation services, and language training. Our industry-specific expertise ensures accurate communication across borders.</p>
-                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            
-            <!-- Technology Industry -->
-            <div class="industry-card fade-in">
-                <div class="industry-img">
-                    <div class="placeholder-box">
-                        <h4>Technology</h4>
-                        <p>600×400 pixels</p>
-                    </div>
-                </div>
-                <div class="industry-content">
-                    <h3>Technology</h3>
-                    <p>We help technology companies localize their products, software interfaces, and documentation for international markets. Our services include software localization, technical translation, and multilingual user experience design.</p>
-                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            
-            <!-- Education Industry -->
-            <div class="industry-card fade-in">
-                <div class="industry-img">
-                    <div class="placeholder-box">
-                        <h4>Education</h4>
-                        <p>600×400 pixels</p>
-                    </div>
-                </div>
-                <div class="industry-content">
-                    <h3>Education</h3>
-                    <p>Our language services support educational institutions and EdTech companies in creating multilingual learning materials, curriculum development, and international student communication strategies.</p>
-                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Industry Expertise Section -->
-    <section class="industry-expertise">
+    <!-- Industries Section -->
+    <section class="industries-section">
         <div class="container">
-            <div class="section-grid">
-                <div class="section-content fade-in">
-                    <h2>Industry-Specific Expertise</h2>
-                    <p>At Lingua Creatives, we understand that different industries have unique language and communication needs. Our team includes specialists with domain expertise across various sectors, ensuring that we provide accurate and contextually appropriate language solutions.</p>
-                    <p>Whether you need technical translation for manufacturing documentation, regulatory compliance support for pharmaceutical exports, or localization for technology products, our industry-specific approach ensures that your content is not just translated, but adapted to meet the specific requirements of your sector.</p>
-                    <a href="contact.html" class="btn btn-primary">Discuss Your Industry Needs</a>
+            <div class="section-intro fade-in">
+                <h2>Our Industry Expertise</h2>
+                <p>We provide specialized language solutions tailored to the unique requirements of various industries. Our team of experts understands the specific terminology, regulations, and communication needs of each sector.</p>
+            </div>
+            
+            <div class="industries-grid">
+                <!-- Pharmaceutical Industry -->
+                <div class="industry-card fade-in">
+                    <div class="industry-img">
+                        <div class="placeholder-box">
+                            <h4>Pharmaceutical</h4>
+                            <p>600×400 pixels</p>
+                        </div>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Pharmaceutical</h3>
+                        <p>We provide specialized language and consultancy services for pharmaceutical companies looking to expand globally, with particular expertise in CIS markets. Our services include regulatory documentation translation, market analysis, and export consultancy.</p>
+                        <a href="contact.php" class="btn btn-secondary">Learn More</a>
+                    </div>
                 </div>
-                <div class="section-image fade-in">
-                    <div class="placeholder-box placeholder-square">
-                        <h4>Industry Expertise</h4>
-                        <p>800×600 pixels</p>
+                
+                <!-- BPO Industry -->
+                <div class="industry-card fade-in">
+                    <div class="industry-img">
+                        <div class="placeholder-box">
+                            <h4>Business Process Outsourcing</h4>
+                            <p>600×400 pixels</p>
+                        </div>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Business Process Outsourcing</h3>
+                        <p>Our language services help BPO companies improve their multilingual customer support capabilities. We offer translation, training, and quality assessment services to ensure effective communication with international clients.</p>
+                        <a href="contact.php" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- FDI Industry - Replace with Legal and Law -->
+                <div class="industry-card fade-in">
+                    <div class="industry-img">
+                        <div class="placeholder-box">
+                            <h4>Legal and Law</h4>
+                            <p>600×400 pixels</p>
+                        </div>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Legal and Law</h3>
+                        <p>We provide specialized language services for legal firms and corporate legal departments, including legal document translation, contract localization, and interpretation for legal proceedings with accuracy and confidentiality.</p>
+                        <a href="contact.php" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Manufacturing Industry -->
+                <div class="industry-card fade-in">
+                    <div class="industry-img">
+                        <div class="placeholder-box">
+                            <h4>Manufacturing</h4>
+                            <p>600×400 pixels</p>
+                        </div>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Manufacturing</h3>
+                        <p>For manufacturing companies operating globally, we provide technical translation, documentation services, and language training. Our industry-specific expertise ensures accurate communication across borders.</p>
+                        <a href="contact.php" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Technology Industry -->
+                <div class="industry-card fade-in">
+                    <div class="industry-img">
+                        <div class="placeholder-box">
+                            <h4>Technology</h4>
+                            <p>600×400 pixels</p>
+                        </div>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Technology</h3>
+                        <p>We help technology companies localize their products, software interfaces, and documentation for international markets. Our services include software localization, technical translation, and multilingual user experience design.</p>
+                        <a href="contact.php" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Education Industry -->
+                <div class="industry-card fade-in">
+                    <div class="industry-img">
+                        <div class="placeholder-box">
+                            <h4>Education</h4>
+                            <p>600×400 pixels</p>
+                        </div>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Education</h3>
+                        <p>Our language services support educational institutions and EdTech companies in creating multilingual learning materials, curriculum development, and international student communication strategies.</p>
+                        <a href="contact.php" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Travel, Tourism and Hospitality Industry -->
+                <div class="industry-card fade-in">
+                    <div class="industry-img">
+                        <div class="placeholder-box">
+                            <h4>Travel, Tourism and Hospitality</h4>
+                            <p>600×400 pixels</p>
+                        </div>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Travel, Tourism and Hospitality</h3>
+                        <p>We help tourism and hospitality businesses communicate effectively with international guests through website localization, marketing material translation, and hospitality staff language training.</p>
+                        <a href="contact.php" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Publishing and Media Industry -->
+                <div class="industry-card fade-in">
+                    <div class="industry-img">
+                        <div class="placeholder-box">
+                            <h4>Publishing and Media</h4>
+                            <p>600×400 pixels</p>
+                        </div>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Publishing and Media</h3>
+                        <p>Our translation and localization services help publishers and media companies reach global audiences with culturally adapted content, book translations, subtitling, and content localization.</p>
+                        <a href="contact.php" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -173,7 +197,7 @@
         <div class="container">
             <h2>Ready to Partner With Us?</h2>
             <p>Let's discuss how our industry-specific language solutions can help your business succeed globally.</p>
-            <a href="contact.html" class="btn btn-large btn-primary">Get in Touch</a>
+            <a href="contact.php" class="btn btn-large btn-primary">Get in Touch</a>
         </div>
     </section>
 
@@ -193,14 +217,14 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="industries.html">Industries</a></li>
                         <li><a href="opportunities.html">Opportunities</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Information</h4>
-                    <p><i class="fas fa-phone"></i> +1 (234) 567-89</p>
+                    <p><i class="fas fa-phone"></i> +91 9870450110</p>
                     <p><i class="fas fa-envelope"></i> info@linguacreatives.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Business Street, City, Country</p>
+                    <p><i class="fas fa-map-marker-alt"></i>New Delhi 110024, India</p>
                 </div>
             </div>
             <div class="footer-bottom">

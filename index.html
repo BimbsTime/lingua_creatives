@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Password protection script -->
+    <script src="js/password-protection.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -22,19 +24,25 @@
                     <ul>
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li>
+                            <a href="services.html" class="dropdown-toggle">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services.html#language-services">Language Services</a></li>
+                                <li><a href="services.html#corporate-training">Corporate Training</a></li>
+                                <li><a href="services.html#pharma-export">Pharma Export Consultancy</a></li>
+                                <li><a href="services.html#corporate-consulting">Corporate Consulting</a></li>
+                                <li><a href="services.html#nature-tourism">Nature Tourism</a></li>
+                            </ul>
+                        </li>
                         <li><a href="industries.html">Industries</a></li>
                         <li><a href="opportunities.html">Opportunities</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="header-actions">
                 <div class="phone-number">
-                    <a href="tel:+123456789"><i class="fas fa-phone"></i> +91 99712 10909 </a>
-                </div>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">Schedule a Free Consultation</a>
+                    <a href="tel:+919870450110"><i class="fas fa-phone"></i> +91 9870450110</a>
                 </div>
             </div>
             <div class="mobile-toggle">
@@ -52,7 +60,7 @@
                 <h2 class="fade-in">Strengthen your International Business</h2>
                 <h3 class="fade-in">Expand your Customer Base</h3>
                 <h3 class="fade-in">Engage Customers in their Language</h3>
-                <a href="contact.html" class="btn btn-large btn-primary fade-in">Schedule a Free Consultation</a>
+                <a href="contact.php" class="btn btn-large btn-primary fade-in">Schedule a Free Consultation?</a>
                 <div class="placeholder-note">(Hero Background Image: 1920×1080 pixels)</div>
             </div>
         </div>
@@ -77,8 +85,8 @@
                         <i class="fas fa-language"></i>
                     </div>
                     <h3>Language Services</h3>
-                    <p>Professional translation, localization, and language solutions.</p>
-                    <a href="services.html" class="read-more">Learn More</a>
+                    <p>Translation, Interpretation, Localization, DTP/Printing, Voice Over, Subtitling, Transcription, Editing, Proofreading, Teaching/Training</p>
+                    <a href="services.html#language-services" class="read-more">Learn More</a>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon">
@@ -86,23 +94,31 @@
                     </div>
                     <h3>Pharma Export Consultancy</h3>
                     <p>Expert guidance for pharmaceutical exports to CIS countries.</p>
-                    <a href="services.html" class="read-more">Learn More</a>
+                    <a href="services.html#pharma-export" class="read-more">Learn More</a>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
                     <h3>Corporate Training</h3>
-                    <p>Language skills, business English, and professional development.</p>
-                    <a href="services.html" class="read-more">Learn More</a>
+                    <p>Language skills, Business English, Business Communication, Soft Skills, Cultural Orientation for executives</p>
+                    <a href="services.html#corporate-training" class="read-more">Learn More</a>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <h3>Corporate Consulting</h3>
-                    <p>Strategic consulting for FDI entry into India.</p>
-                    <a href="services.html" class="read-more">Learn More</a>
+                    <p>Cultural Orientation, Regulatory Compliance, Legal Services, Intellectual Property Rights, Business Setup Support</p>
+                    <a href="services.html#corporate-consulting" class="read-more">Learn More</a>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mountain"></i> <!-- or fa-tree, fa-hiking, fa-leaf -->
+                    </div>
+                    <h3>Nature Tourism</h3>
+                    <p>Eco-friendly travel experiences, wildlife tours, and sustainable adventure packages in pristine natural locations.</p>
+                    <a href="services.html#nature-tourism" class="read-more">Learn More</a>
                 </div>
             </div>
         </div>
@@ -113,7 +129,7 @@
         <div class="container">
             <h2>Ready to Expand Your Global Reach?</h2>
             <p>Our expert team is here to support your international business goals.</p>
-            <a href="contact.html" class="btn btn-large btn-primary">Get in Touch Today</a>
+            <a href="contact.php" class="btn btn-large btn-primary">Get in Touch Today</a>
         </div>
     </section>
 
@@ -133,14 +149,14 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="industries.html">Industries</a></li>
                         <li><a href="opportunities.html">Opportunities</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Information</h4>
-                    <p><i class="fas fa-phone"></i> +1 (234) 567-89</p>
+                    <p><i class="fas fa-phone"></i> +91 9870450110</p>
                     <p><i class="fas fa-envelope"></i> info@linguacreatives.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Business Street, City, Country</p>
+                    <p><i class="fas fa-map-marker-alt"></i>New Delhi 110024, India</p>
                 </div>
             </div>
             <div class="footer-bottom">

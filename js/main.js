@@ -1,50 +1,137 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile navigation toggle
+    // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
     const mainNavigation = document.querySelector('.main-navigation');
     
     if (mobileToggle) {
         mobileToggle.addEventListener('click', function() {
-            mainNavigation.classList.toggle('active');
             this.classList.toggle('active');
+            mainNavigation.classList.toggle('active');
         });
     }
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+    // Dropdown menu toggle for mobile
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+    dropdownToggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                this.parentNode.classList.toggle('dropdown-active');
             }
         });
     });
     
-    // Handle animation on scroll
-    const animatedElements = document.querySelectorAll('.fade-in');
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (mainNavigation && mainNavigation.classList.contains('active')) {
+            if (!mainNavigation.contains(e.target) && e.target !== mobileToggle && !mobileToggle.contains(e.target)) {
+                mainNavigation.classList.remove('active');
+                if (mobileToggle) {
+                    mobileToggle.classList.remove('active');
+                }
+            }
+        }
+    });
     
-    function checkInView() {
-        animatedElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementBottom = element.getBoundingClientRect().bottom;
-            
-            // Check if element is in viewport
-            if (elementTop < window.innerHeight && elementBottom > 0) {
-                element.style.animationPlayState = 'running';
+    // Close dropdowns when window is resized
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+            document.querySelectorAll('.dropdown-active').forEach(function(item) {
+                item.classList.remove('dropdown-active');
+            });
+        }
+        
+        // If mobile menu is open and screen size changes to desktop, close it
+        if (window.innerWidth > 992 && mainNavigation && mainNavigation.classList.contains('active')) {
+            mainNavigation.classList.remove('active');
+            if (mobileToggle) {
+                mobileToggle.classList.remove('active');
+            }
+        }
+    });
+    
+    // Enhanced animated scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            if (this.getAttribute('href') !== '#') {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (mobileToggle && mobileToggle.classList.contains('active')) {
+                        mobileToggle.classList.remove('active');
+                        mainNavigation.classList.remove('active');
+                    }
+                    
+                    // Improved smooth scroll to target with offset adjustment based on screen size
+                    const headerOffset = window.innerWidth <= 768 ? 60 : 80;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL hash after scrolling
+                    setTimeout(() => {
+                        history.pushState(null, null, targetId);
+                    }, 1000);
+                }
             }
         });
+    });
+    
+    // Improved animation for elements when they come into view
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Unobserve after animation is triggered
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        function checkIfInView() {
+            const windowHeight = window.innerHeight;
+            const windowTopPosition = window.scrollY;
+            const windowBottomPosition = windowTopPosition + windowHeight;
+            
+            fadeElements.forEach(function(element) {
+                const elementHeight = element.offsetHeight;
+                const elementTopPosition = element.offsetTop;
+                const elementBottomPosition = elementTopPosition + elementHeight;
+                
+                // Check if element is in viewport with buffer
+                if ((elementBottomPosition >= windowTopPosition - 100) && 
+                    (elementTopPosition <= windowBottomPosition + 100)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check and add scroll event listener
+        checkIfInView();
+        window.addEventListener('scroll', checkIfInView);
     }
-    
-    // Initial check
-    checkInView();
-    
-    // Check on scroll
-    window.addEventListener('scroll', checkInView);
     
     // Active menu items based on current page
     const currentPage = window.location.pathname.split('/').pop();
@@ -55,6 +142,26 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.add('active');
         }
     });
+    
+    // Add touch optimization for better mobile experience
+    if ('ontouchstart' in window || navigator.maxTouchPoints) {
+        document.body.classList.add('touch-device');
+        
+        // Add hover effect for cards on touch
+        const interactiveElements = document.querySelectorAll('.service-card, .industry-card, .feature-card, .opportunity-card, .sub-service-item');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.classList.add('touch-focus');
+            }, {passive: true});
+            
+            element.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.classList.remove('touch-focus');
+                }, 300);
+            }, {passive: true});
+        });
+    }
     
     // Form submission handling for contact form
     const contactForm = document.querySelector('.contact-form');
@@ -113,4 +220,20 @@ document.addEventListener('DOMContentLoaded', function() {
 // Delay animation start until page is loaded
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
+    
+    // Scroll to hash target if present in URL
+    if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            setTimeout(() => {
+                const headerOffset = window.innerWidth <= 768 ? 60 : 80;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }, 500);
+        }
+    }
 }); 
